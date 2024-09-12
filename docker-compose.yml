@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webserver:
+    image: docker01mxlinux.acme.local:5000/nginx:1.27.0-alpine3.19-slim
+    ports:
+      - 3000:80
+    restart: always
+    volumes:
+      - ../pollux/public:/usr/share/nginx/html/public:ro
+      - ./dev/:/etc/nginx/conf.d/:ro
